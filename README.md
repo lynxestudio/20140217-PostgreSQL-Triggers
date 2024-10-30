@@ -18,19 +18,17 @@ A continuación un ejemplo de la utilización de <strong>triggers</strong> en po
 </p>
 <p>Existe una tabla de facturas como la siguiente:</p>
 <div>
-<IMG src="picture_library/trigger/invoices.png">
+<IMG src="images/">
 </div><br>
-<p>Creamos unas facturas con el siguiente script.</p>
-<div>
-<IMG src="picture_library/trigger/tbinvoices.png"></div><br>
+<p>Creamos unas facturas con el script.</p>
 <p>Bien esta tabla ya cuenta con algunos registros.</p>
 <div>
-<IMG src="picture_library/trigger/fig1.png"></div><br>
+<IMG src="images/fig1.png"></div><br>
 <p align="justify">Ahora se necesita conocer aquellos registros que por error o intencionalmente cambiaron de fecha o de cantidad. 
 Para cumplir con este requerimiento se crea una tabla en donde se guardará el historial de esos cambios.
 </p>
 <div>
-<IMG src="picture_library/trigger/invoices_audit.png"></div><br>
+<IMG src="images/"></div><br>
 <p align="justify">Necesitamos una solución para que cada vez que se borre o se actualice un registro en la tabla <i>invoices</i> se registren los cambios en  <i>invoices_audit</i>.
 Bien ya tenemos una razón para crear un <strong>trigger</strong>.</p>
 <p align="justify">
@@ -44,10 +42,7 @@ Antes de utilizar un <strong>trigger</strong> es indispensable crear una funció
 <li><strong>TG_RELNAME</strong> El nombre de la tabla que disparó el <strong>trigger</strong>.</li>
  <li><strong>TG_RELID</strong> El OID de la tabla que disparó el <strong>trigger</strong></li>
  </ul>
-<p>Esta <strong>trigger function</strong> se crea sin parámetros y con un valor de retorno de tipo trigger, esta función se ejecutará cada vez que una fila es modificada, a continuación el código de la función en donde se muestra el uso de variables predefinidas.</p>
-<div>
-<IMG src="picture_library/trigger/usp_invoice_history.png">
-</div><br>
+<p>Este <strong>trigger function</strong> se crea sin parámetros y con un valor de retorno de tipo trigger, esta función se ejecutará cada vez que una fila es modificada, a continuación el código de la función en donde se muestra el uso de variables predefinidas.</p>
 <p>
 Siendo lo más importante a continuación el código que crea el <strong>trigger</strong> , esto es lo que asocia la tabla con la ejecución de la función.</p>
 <p>La sintaxis general para crear un trigger es:</p>
@@ -56,10 +51,6 @@ CREATE TRIGGER [name] [BEFORE | AFTER] [action]
 ON [table] FOR EACH ROW
 EXECUTE PROCEDURE [function name(arguments)]
 </pre>
-<p>El código completo es el siguiente:</p>
-<div>
-<IMG src="picture_library/trigger/tgr_invoice_history.png">
-</div><br>
 <p align="justify">
 Cuando ejecutemos el código de la <strong>función trigger</strong> y de la creación del <strong>trigger</strong> desde un archivo, <strong>PostgreSQL</strong> nos mostrará los siguientes mensajes:</p>
 <pre>
@@ -67,26 +58,26 @@ CREATE FUNCTION
 CREATE TRIGGER
 </pre>
 <div>
-<IMG src="picture_library/trigger/fig2.png">
+<IMG src="images/fig2.png">
 </div><br>
 <p align="justify">Observamos que la <strong>función trigger</strong> y el <strong>trigger</strong> se crearon exitosamente, utilizando <strong>PgAdmin III</strong>.</p>
 <div>
-<IMG src="picture_library/trigger/fig6.png">
+<IMG src="images/fig6.png">
 </div><br>
 <div>
-<IMG src="picture_library/trigger/fig7.png">
+<IMG src="images/fig7.png">
 </div><br>
 <p>Probamos el <strong>trigger</strong> actualizando un par de registros en la tabla <i>invoices</i>.</p>
 <div>
-<IMG src="picture_library/trigger/fig3.png">
+<IMG src="images/fig3.png">
 </div><br>
 <p>Comprobamos que las actualizaciones se realizaron.</p>
 <div>
-<IMG src="picture_library/trigger/fig4.png">
+<IMG src="images/fig4.png">
 </div><br>
 <p>
 Por último mostramos los registros de la tabla <i>invoices_audit</i>, para comprobar que el <strong>trigger</strong>  guardo los valores que cambiaron de los registros actualizados.
 <div>
-<IMG src="picture_library/trigger/fig5.png">
+<IMG src="images/fig5.png">
 </div>
 </p>
