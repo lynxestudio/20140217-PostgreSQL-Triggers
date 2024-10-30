@@ -18,7 +18,7 @@ A continuación un ejemplo de la utilización de <strong>triggers</strong> en po
 </p>
 <p>Existe una tabla de facturas como la siguiente:</p>
 <div>
-<IMG src="images/">
+<IMG src="images/invoices.png">
 </div><br>
 <p>Creamos unas facturas con el script.</p>
 <p>Bien esta tabla ya cuenta con algunos registros.</p>
@@ -28,7 +28,7 @@ A continuación un ejemplo de la utilización de <strong>triggers</strong> en po
 Para cumplir con este requerimiento se crea una tabla en donde se guardará el historial de esos cambios.
 </p>
 <div>
-<IMG src="images/"></div><br>
+<IMG src="images/invoices_audit.png"></div><br>
 <p align="justify">Necesitamos una solución para que cada vez que se borre o se actualice un registro en la tabla <i>invoices</i> se registren los cambios en  <i>invoices_audit</i>.
 Bien ya tenemos una razón para crear un <strong>trigger</strong>.</p>
 <p align="justify">
